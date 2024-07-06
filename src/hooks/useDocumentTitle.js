@@ -14,7 +14,7 @@ const useDocumentTitle = (title, description) => {
       }
       metaDescription.content = description;
     }
-  }, [title]);
+  }, [title, description]);
 };
 
 export default useDocumentTitle;
