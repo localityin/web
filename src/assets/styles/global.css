@@ -1,0 +1,43 @@
+.screen {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  /* background: url('../icons/background.svg') repeat; */
+  font-size: 1rem;
+}
+
+.container {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .container {
+    width: 66.67%;
+    margin: 0 auto;
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    width: 100%;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 767px) {
+  .container {
+    width: 100%;
+  }
+}
+
+.header-text {
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin: 1% 0 5% 0;
+}

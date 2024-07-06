@@ -1,0 +1,87 @@
+@import '../../assets/styles/global.css';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  width: 66.67%;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--primary-font-color);
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-item {
+  margin-left: 20px;
+}
+
+.nav-link {
+  color: var(--primary-font-color);
+  text-decoration: none;
+  font-size: 18px;
+  padding-bottom: 5px;
+}
+
+.nav-link.active {
+  border-bottom: 2px solid var(--primary-font-color);
+}
+
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: transparent;
+  margin: 4px;
+  border-radius: 3px;
+}
+
+/* Tablet and Mobile styles */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+  .nav-list {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: --nav-background-color;
+    width: 100%;
+    text-align: right;
+  }
+  .nav-item {
+    margin: 10px 0;
+  }
+  .nav.show {
+    display: flex;
+  }
+}

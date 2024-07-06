@@ -1,4 +1,8 @@
+@import './assets/styles/theme.css';
+
 body {
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Syne', sans-serif;
+  background-color: var(--background-color);
+  color: var(--primary-font-color);
 }

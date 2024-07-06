@@ -1,0 +1,15 @@
+@import '../../assets//styles/global.css';
+
+.section {
+  margin-bottom: 25px;
+}
+
+.section-title {
+  font-size: 1.5em;
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.section-text {
+  line-height: 1.6;
+}
