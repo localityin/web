@@ -6,7 +6,7 @@ import useDocumentTitle from '../../hooks/useDocumentTitle';
 import './index.css';
 
 import orderService from '../../services/order';
-import { setAuthToken, decodeToken, getAuthToken } from '../../utils/token'
+import { decodeToken } from '../../utils/token'
 
 interface OrderDetails {
     orderId: string;
@@ -18,10 +18,6 @@ interface OrderDetails {
         price: number;
     }>;
     total: number;
-}
-
-interface DecodedToken {
-    orderId: string;
 }
 
 function RateOrder() {

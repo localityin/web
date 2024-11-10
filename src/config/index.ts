@@ -1,4 +1,4 @@
-export default {
+const config = {
 	analytics: {
 		trackingId: process.env.REACT_APP_GA_MEASUREMENT_ID,
 	},
@@ -9,3 +9,5 @@ export default {
 		secretKey: process.env.REACT_APP_TOKEN_SECRET,
 	},
 };
+
+export default config;
