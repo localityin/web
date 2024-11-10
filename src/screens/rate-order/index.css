@@ -1,0 +1,23 @@
+@import "../../assets//styles/global.css";
+
+.rate-order {
+	background-color: var(--secondary-font-color);
+	border: none;
+	padding: 20px 40px;
+	color: var(--primary-font-color);
+	border-radius: 50px;
+	cursor: pointer;
+	margin: 15px 0 0 0;
+	color: var(--background-color);
+	background: linear-gradient(
+		to right,
+		var(--button-left-gradient),
+		var(--button-right-gradient)
+	);
+}
+
+.rating-section {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}

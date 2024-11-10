@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import ReactGA from 'react-ga4';
-
 import Header from './components/Header';
 import router from './router';
+import config from './config';
 
 const TrackPageView = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const trackingId = process.env.REACT_APP_GA_MEASUREMENT_ID;
+    const trackingId = config.analytics.trackingId;
     if (trackingId) {
       ReactGA.initialize(trackingId);
       ReactGA.send({ hitType: 'pageview', page: location.pathname });
@@ -19,23 +19,27 @@ const TrackPageView = () => {
   return null;
 };
 
+const renderRoutes = (routes: typeof router) => {
+  return routes.map((route, index) => {
+    if (route.children) {
+      // Recursively render child routes
+      return (
+        <Route key={index} path={route.path} element={route.element}>
+          {renderRoutes(route.children)}
+        </Route>
+      );
+    }
+    return <Route key={index} path={route.path} index={route.index} element={route.element} />;
+  });
+};
+
 const App = () => {
   return (
     <BrowserRouter>
       <Header />
-      {/* Only here to track page views */}
+      {/* Track page views */}
       <TrackPageView />
-      <Routes>
-        <Route path="/">
-          {router.map((value) =>
-            value.index ? (
-              <Route index={true} element={value.element} />
-            ) : (
-              <Route path={value.path} element={value.element} />
-            )
-          )}
-        </Route>
-      </Routes>
+      <Routes>{renderRoutes(router)}</Routes>
     </BrowserRouter>
   );
 };
