@@ -130,6 +130,16 @@ function RateOrder() {
                             <span>{rating} / 5</span>
                         </div>
 
+                        <div className="review-section">
+                            <label htmlFor="review">Review:</label>
+                            <textarea
+                                id="review"
+                                name="review"
+                                value={review}
+                                onChange={(event) => setReview(event.target.value)}
+                            />
+                        </div>
+
                         <button
                             className="rate-order"
                             onClick={handleSubmit}

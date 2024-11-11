@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import ReactGA from 'react-ga4';
-import Header from './components/Header';
+import { ChakraProvider, defaultSystem } from "@chakra-ui/react"
+
 import router from './router';
 import config from './config';
 
@@ -22,7 +23,6 @@ const TrackPageView = () => {
 const renderRoutes = (routes: typeof router) => {
   return routes.map((route, index) => {
     if (route.children) {
-      // Recursively render child routes
       return (
         <Route key={index} path={route.path} element={route.element}>
           {renderRoutes(route.children)}
@@ -36,10 +36,10 @@ const renderRoutes = (routes: typeof router) => {
 const App = () => {
   return (
     <BrowserRouter>
-      <Header />
-      {/* Track page views */}
-      <TrackPageView />
-      <Routes>{renderRoutes(router)}</Routes>
+      <ChakraProvider value={defaultSystem}>
+        <TrackPageView />
+        <Routes>{renderRoutes(router)}</Routes>
+      </ChakraProvider>
     </BrowserRouter>
   );
 };
