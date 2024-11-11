@@ -30,6 +30,8 @@ function RateOrder() {
     const [orderId, setOrderId] = useState<string | null>(null);
     const [orderDetails, setOrderDetails] = useState<OrderDetails | null>(null);
     const [rating, setRating] = useState<number>(5); // Default rating value
+    const [review, setReview] = useState<string>('');
+
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
     const [message, setMessage] = useState<string>('');
 
@@ -76,7 +78,7 @@ function RateOrder() {
                 throw new Error('Order ID not found');
             }
 
-            const response = await orderService.rateOrder(orderId, { rating });
+            const response = await orderService.rateOrder(orderId, { rating, review });
 
             if (response.status) {
                 setMessage('Thank you for rating your order! Closing window in 5 seconds');
