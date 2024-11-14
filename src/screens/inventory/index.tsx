@@ -1,7 +1,7 @@
 import './index.css';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 
-function About() {
+function UpdateInventory() {
     useDocumentTitle(
         'Inventory | locality.',
         'Update your store inventory and manage your products.'
@@ -17,4 +17,7 @@ function About() {
     );
 }
 
-export default About;
+export default UpdateInventory;
+
+
+
